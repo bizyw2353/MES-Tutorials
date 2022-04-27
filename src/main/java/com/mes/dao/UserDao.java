@@ -1,6 +1,6 @@
 package com.mes.dao;
 
-import com.mes.util.entity.User;
+import com.mes.entity.User;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.mes.util.entity;
+package com.mes.entity;
 
 import javax.persistence.*;
 import java.util.Date;
