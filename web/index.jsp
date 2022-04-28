@@ -14,3 +14,7 @@
   $END$
   </body>
 </html>
+
+<script>
+  location.href = "/userEdit.do"
+</script>

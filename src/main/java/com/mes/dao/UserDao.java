@@ -3,11 +3,11 @@ package com.mes.dao;
 import com.mes.entity.User;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserDao extends JpaDao<User> implements GenericDao<User>{
-    public UserDao(){
 
-    }
+
 
     @Override
     public User create(User user) {
@@ -31,5 +31,10 @@ public class UserDao extends JpaDao<User> implements GenericDao<User>{
     @Override
     public void delete(Object id) {
         super.delete(User.class, id);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return super.findWithNamedQuery("User.findAll");
     }
 }
