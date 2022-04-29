@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "User.findAll", query = "SELECT u FROM User AS u"),
-        @NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.userId = :userId AND u.password = :password")
+        @NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.userId = :userId AND u.password = :password ORDER BY u.createdAt DESC")
 })
 @Getter
 @Setter
@@ -26,6 +26,9 @@ public class User {
     private String password;
 
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
     @Column(name = "created_at")
     private Date createdAt;

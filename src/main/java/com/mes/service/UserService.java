@@ -62,7 +62,7 @@ public class UserService {
 
     //로그인
     public List<User> login(UserDto userDto) {
-        List<User> loginUser = userDao.checkLogin2(userDto);
+        List<User> loginUser = userDao.checkLogin(userDto);
         return loginUser;
     }
 

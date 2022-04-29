@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "accounts")
 @NamedQueries({
-        @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a ORDER BY a.createdAt")
+        @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a ORDER BY a.createdAt DESC")
 })
 @Getter
 @Setter
