@@ -1,5 +1,6 @@
 package com.mes.controller;
 
+import com.mes.controller.account.*;
 import com.mes.controller.user.*;
 import com.mes.util.HibernateUtil;
 
@@ -25,11 +26,18 @@ public class FrontController extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         router.put("/main.do", new MainController());
         router.put("/login.do", new LoginController());
+        router.put("/loginEnd.do", new LoginProcController());
         router.put("/join.do", new UserCreateController());
         router.put("/joinEnd.do", new UserCreateProcController());
         router.put("/userEdit.do", new UserUpdateController());
         router.put("/userEditEnd.do", new UserUpdateProcController());
         router.put("/userList.do", new UserListController());
+        router.put("/accountCreate.do", new AccountCreateController());
+        router.put("/accountCreateEnd.do", new AccountCreateProcController());
+        router.put("/accountUpdate.do", new AccountUpdateController());
+        router.put("/accountUpdateEnd.do", new AccountUpdateProcController());
+        router.put("/accountList.do", new AccountListController());
+
     }
 
     @Override

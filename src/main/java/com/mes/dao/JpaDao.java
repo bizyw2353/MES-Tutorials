@@ -1,6 +1,7 @@
 package com.mes.dao;
 
 
+import com.mes.dto.UserDto;
 import com.mes.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class JpaDao<E> {
     EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
@@ -74,16 +77,22 @@ public class JpaDao<E> {
         Query query = entityManager.createNamedQuery(queryName);
         List<E> result = query.getResultList();
         return result;
-     /*   try {
-            Query query = entityManager.createNamedQuery(queryName);
-            List<E> result = query.getResultList();
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            entityManager.close();
+    }
+
+    public List<E> findWithNamedQuery(String queryName, Map<String, Object> parameter) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Query query = entityManager.createNamedQuery(queryName);
+
+        System.out.println("entrySet() => "+parameter.entrySet());
+        Set<Map.Entry<String, Object>> setParameter = parameter.entrySet();
+
+        for (Map.Entry<String, Object> entry : setParameter) {
+            query.setParameter(entry.getKey(), entry.getValue());
         }
+
+        List<E> result = query.getResultList();
         entityManager.close();
-        return null;
-*/
+
+        return result;
     }
 }

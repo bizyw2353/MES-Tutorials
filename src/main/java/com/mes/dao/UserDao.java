@@ -1,9 +1,12 @@
 package com.mes.dao;
 
+import com.mes.dto.UserDto;
 import com.mes.entity.User;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserDao extends JpaDao<User> implements GenericDao<User>{
 
@@ -36,5 +39,20 @@ public class UserDao extends JpaDao<User> implements GenericDao<User>{
     @Override
     public List<User> findAll() {
         return super.findWithNamedQuery("User.findAll");
+    }
+
+    public boolean checkLogin(UserDto userDto) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("userId", userDto.getUserId());
+        parameters.put("password", userDto.getPassword());
+
+        List<User> listUser = super.findWithNamedQuery("User.checkLogin", parameters);
+
+        if (listUser.size() < 1) {
+            return false;
+        }
+
+        return true;
+
     }
 }

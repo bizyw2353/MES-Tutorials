@@ -2,18 +2,17 @@ package com.mes.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "users")
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User AS u"),
+        @NamedQuery(name = "User.checkLogin", query = "SELECT u FROM User u WHERE u.userId = :userId AND u.password = :password")
+})
 @Getter
 @Setter
-@Entity
-@NamedQueries({
-        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User AS u")
-})
-@Table(name = "users")
 public class User {
 
     @Id

@@ -2,7 +2,7 @@ package com.mes.dao;
 
 import java.util.List;
 
-public interface GenericDao<E>{
+public interface GenericDao<E> {
 
     public E create(E t);
 

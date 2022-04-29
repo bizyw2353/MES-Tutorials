@@ -55,9 +55,15 @@ public class UserService {
         return userDao.findWithNamedQuery("User.findAll");
     }
 
-    //회원찾기
+    //index로 회원찾기
     public User findUserById(Integer id){
         return userDao.find(id);
-
     }
+
+    //로그인
+    public boolean login(UserDto userDto) {
+        boolean loginUser = userDao.checkLogin(userDto);
+        return loginUser;
+    }
+
 }
