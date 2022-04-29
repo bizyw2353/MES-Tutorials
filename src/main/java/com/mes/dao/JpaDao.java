@@ -84,7 +84,7 @@ public class JpaDao<E> {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createNamedQuery(queryName);
 
-        System.out.println("entrySet() => "+parameter.entrySet());
+        System.out.println("query => "+query);
         Set<Map.Entry<String, Object>> setParameter = parameter.entrySet();
 
         for (Map.Entry<String, Object> entry : setParameter) {

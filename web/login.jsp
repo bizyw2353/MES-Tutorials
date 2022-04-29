@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>로그인페이지</title>
 </head>
 <body>
 <form id="loginF" method="post" action="loginEnd.do">

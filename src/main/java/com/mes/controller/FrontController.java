@@ -25,8 +25,10 @@ public class FrontController extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         router.put("/main.do", new MainController());
+        router.put("/checkUserId.do", new CheckUserId());
         router.put("/login.do", new LoginController());
         router.put("/loginEnd.do", new LoginProcController());
+        router.put("/logout.do", new LogoutController());
         router.put("/join.do", new UserCreateController());
         router.put("/joinEnd.do", new UserCreateProcController());
         router.put("/userEdit.do", new UserUpdateController());

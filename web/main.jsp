@@ -9,22 +9,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>홈</title>
 </head>
 <body>
 <h3>메인페이지</h3>
 <ul>
-    <li><a href="login.do">로그인</a> </li>
+    <c:if test="${loginUser eq null}">
+    <li><a href="login.do">로그인</a></li>
 
-    <li><a href="join.do">회원가입</a> </li>
-<c:forEach var="user" items="${loginUser}">
-    <label> ${user.userId}님 로그인중</label>
-    <li><a href="userEdit.do?id=${user.id}">내정보수정</a> </li>
-</c:forEach>
-    <li><a href="userList.do">회원목록 보러가기</a> </li>
+    <li><a href="join.do">회원가입</a></li>
+    </c:if>
+    <c:forEach var="user" items="${loginUser}">
+        <b> ${user.userId}님 로그인중</b>
+        <li><a href="userEdit.do?id=${user.id}">내정보수정</a></li>
+        <li><a href="logout.do">로그아웃</a></li>
+    </c:forEach>
+    <li><a href="userList.do">회원목록 보러가기</a></li>
 
-    <li><a href="accountCreate.do">거래처등록</a> </li>
-    <li><a href="accountList.do">거래처목록 보러가기</a> </li>
+    <li><a href="accountCreate.do">거래처등록</a></li>
+    <li><a href="accountList.do">거래처목록 보러가기</a></li>
 </ul>
 </body>
 </html>
