@@ -52,6 +52,14 @@ public class UserDao extends JpaDao<User> implements GenericDao<User>{
 
     }
 
+//    public List<User> checkId(String userId) {
+//        Map<String, Object> parameters = new HashMap<>();
+//        parameters.put("userId", userId);
+//
+//        List<User> listUser = super.findWithNamedQuery("User.checkId", parameters);
+//
+//    }
+
 //    public boolean checkLogin(UserDto userDto) {
 //        Map<String, Object> parameters = new HashMap<>();
 //        parameters.put("userId", userDto.getUserId());
