@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public interface Controller {
+
     public String getMethod();
+
     public String execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException;
 }

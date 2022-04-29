@@ -11,10 +11,10 @@ public class HibernateUtil {
     static {
         if(entityManagerFactory == null) {
             try {
-                entityManagerFactory = Persistence.createEntityManagerFactory("mes-taemyung");
+                entityManagerFactory = Persistence.createEntityManagerFactory("mesTest");
             } catch (IllegalStateException e) {
                 e.printStackTrace();
-                HibernateUtil.close();
+                close();
             }
         }
     }
@@ -25,9 +25,7 @@ public class HibernateUtil {
 
     public static void close(){
         try {
-            if (entityManagerFactory instanceof EntityManagerFactory) {
-                entityManagerFactory.close();
-            }
+            entityManagerFactory.close();
         } catch (IllegalStateException e) {
             e.printStackTrace();
             System.out.println("--> connection close error");
