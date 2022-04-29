@@ -15,9 +15,9 @@ public class AccountDto {
 //    private String ceo;
 //    private String businessType;
 //    private String business_category;
-//    private String tel;
-//    private String fax;
-//    private String email;
+    private String tel;
+    private String fax;
+    private String email;
 //    private String address1;
 //    private String addressDetail1;
 //    private String zipCode1;

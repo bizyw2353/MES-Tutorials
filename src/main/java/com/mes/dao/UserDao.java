@@ -41,6 +41,17 @@ public class UserDao extends JpaDao<User> implements GenericDao<User>{
         return super.findWithNamedQuery("User.findAll");
     }
 
+    public List<User> checkLogin2(UserDto userDto) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("userId", userDto.getUserId());
+        parameters.put("password", userDto.getPassword());
+
+        List<User> listUser = super.findWithNamedQuery("User.checkLogin", parameters);
+
+        return listUser;
+
+    }
+
     public boolean checkLogin(UserDto userDto) {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("userId", userDto.getUserId());
@@ -48,10 +59,13 @@ public class UserDao extends JpaDao<User> implements GenericDao<User>{
 
         List<User> listUser = super.findWithNamedQuery("User.checkLogin", parameters);
 
+        System.out.println("listUser"+listUser.get(0).getUserId());
+//        userDto.setId(Integer.valueOf(String.valueOf(listUser.get(0))));
+//        System.out.println("luser="+luser.getId());
+
         if (listUser.size() < 1) {
             return false;
         }
-
         return true;
 
     }

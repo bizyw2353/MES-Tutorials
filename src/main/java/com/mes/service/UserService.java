@@ -61,8 +61,8 @@ public class UserService {
     }
 
     //로그인
-    public boolean login(UserDto userDto) {
-        boolean loginUser = userDao.checkLogin(userDto);
+    public List<User> login(UserDto userDto) {
+        List<User> loginUser = userDao.checkLogin2(userDto);
         return loginUser;
     }
 

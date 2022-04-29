@@ -2,6 +2,7 @@ package com.mes.dao;
 
 
 import com.mes.dto.UserDto;
+import com.mes.entity.User;
 import com.mes.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
@@ -91,6 +92,8 @@ public class JpaDao<E> {
         }
 
         List<E> result = query.getResultList();
+        System.out.println("로그인유저정보 : "+result);
+        System.out.println("getClass() : "+result.getClass());
         entityManager.close();
 
         return result;

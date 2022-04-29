@@ -34,8 +34,8 @@ public class FrontController extends HttpServlet {
         router.put("/userList.do", new UserListController());
         router.put("/accountCreate.do", new AccountCreateController());
         router.put("/accountCreateEnd.do", new AccountCreateProcController());
-        router.put("/accountUpdate.do", new AccountUpdateController());
-        router.put("/accountUpdateEnd.do", new AccountUpdateProcController());
+        router.put("/accountEdit.do", new AccountUpdateController());
+        router.put("/accountEditEnd.do", new AccountUpdateProcController());
         router.put("/accountList.do", new AccountListController());
 
     }

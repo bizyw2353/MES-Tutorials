@@ -1,7 +1,9 @@
 package com.mes.controller.account;
 
 import com.mes.controller.Controller;
+import com.mes.entity.Account;
 import com.mes.entity.User;
+import com.mes.service.AccountService;
 import com.mes.service.UserService;
 
 import javax.servlet.ServletException;
@@ -21,13 +23,13 @@ public class AccountUpdateController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer id = 82;
+        Integer id = Integer.valueOf(request.getParameter("id"));
 
-        UserService userService = new UserService();
-        User user = userService.findUserById(id);
+        AccountService accountService = new AccountService();
+        Account account = accountService.findAccountById(id);
 
-        request.setAttribute("user", user);
+        request.setAttribute("account", account);
 
-        return "/user/userEdit.jsp";
+        return "/account/accountEdit.jsp";
     }
 }

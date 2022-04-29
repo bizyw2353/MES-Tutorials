@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 public class LoginProcController implements Controller {
 
@@ -35,13 +36,17 @@ public class LoginProcController implements Controller {
         userDto.setPassword(md5);
 
         UserService userService = new UserService();
-        boolean result = userService.login(userDto);
+        List<User> loginUser = userService.login(userDto);
+//        boolean result = userService.login(userDto);
+        if (loginUser == null) {
+            request.setAttribute("msg", "로그인 실패");
+            request.setAttribute("loc", "javascript:history.back()");
+            return "util/msg.jsp";
+        }
 
-        User loginUser = userService.findUserByUserId(userId);
-        session.setAttribute("loginUser", userId);
-
-
-
-        return null;
+        session.setAttribute("loginUser", loginUser);
+        request.setAttribute("loginUser", loginUser);
+        request.setAttribute("loc", "main.do");
+        return "/util/msg.jsp";
     }
 }

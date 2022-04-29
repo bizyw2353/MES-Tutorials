@@ -2,24 +2,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>회원목록</title>
 </head>
 <body>
-<div>
-    <table border="1" cellpadding="5">
+    <button onclick="location.href='main.do'">홈으로</button>
+    <table>
         <tr>
-            <th>Index</th>
-            <th>ID</th>
-            <th>name</th>
+            <th>no</th>
+            <th>회원번호</th>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>가입일</th>
         </tr>
         <c:forEach var="user" items="${userList}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
+                <td>${user.id}</td>
                 <td>${user.userId}</td>
                 <td>${user.name}</td>
+                <td>${user.createdAt}</td>
             </tr>
         </c:forEach>
     </table>
-</div>
 </body>
 </html>

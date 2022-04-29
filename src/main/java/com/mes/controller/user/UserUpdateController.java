@@ -23,7 +23,7 @@ public class UserUpdateController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer id = 82;
+        Integer id = Integer.valueOf(request.getParameter("id"));
 
         UserService userService = new UserService();
         User user = userService.findUserById(id);

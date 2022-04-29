@@ -1,7 +1,9 @@
 package com.mes.controller.account;
 
 import com.mes.controller.Controller;
+import com.mes.entity.Account;
 import com.mes.entity.User;
+import com.mes.service.AccountService;
 import com.mes.service.UserService;
 
 import javax.servlet.ServletException;
@@ -23,11 +25,11 @@ public class AccountListController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        UserService userService = new UserService();
-        List<User> userList = userService.findAllUser();
+        AccountService accountService = new AccountService();
+        List<Account> accountList = accountService.findAllUser();
 
-        request.setAttribute("userList", userList);
+        request.setAttribute("accountList", accountList);
 
-        return "/user/userList.jsp";
+        return "/account/accountList.jsp";
     }
 }

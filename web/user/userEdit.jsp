@@ -4,7 +4,7 @@
     <title>회원정보 수정</title>
 </head>
 <body>
-<form id="editF" action="/userEditEnd.do" method="post">
+<form id="userEditF" action="/userEditEnd.do" method="post">
     <h1>edit Page</h1>
     <input type="hidden" name="id" value="${user.id}">
     <label>아이디 : </label><input id="userId" name="userId" value="${user.userId}" placeholder="아이디를 입력하세요."><br>
@@ -35,11 +35,11 @@
             return false;
         }
         if (!password.value) {
-            alert('이름을 입력해주세요.');
+            alert('비밀번호를 입력해주세요.');
             password.focus();
             return false;
         }
-        document.getElementById('editF').submit();
+        document.getElementById('userEditF').submit();
     }
 </script>
 

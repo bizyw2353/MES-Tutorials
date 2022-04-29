@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "accounts")
 @NamedQueries({
-        @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a ORDER BY createdAt")
+        @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a ORDER BY a.createdAt")
 })
 @Getter
 @Setter
@@ -24,6 +24,12 @@ public class Account {
     private String accountCode;
 
     private String name;
+
+    private String tel;
+
+    private String fax;
+
+    private String email;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -42,11 +48,6 @@ public class Account {
 //    @Column(name = "business_category")
 //    private String businessCategory;
 //
-//    private String tel;
-//
-//    private String fax;
-//
-//    private String email;
 //
 //    private String address1;
 //

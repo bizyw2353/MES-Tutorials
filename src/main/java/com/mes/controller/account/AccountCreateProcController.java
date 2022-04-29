@@ -29,10 +29,16 @@ public class AccountCreateProcController implements Controller {
 
         String accountCode = request.getParameter("accountCode");
         String name = request.getParameter("name");
+        String tel = request.getParameter("tel");
+        String fax = request.getParameter("fax");
+        String email = request.getParameter("email");
 
         AccountDto accountDto = new AccountDto();
         accountDto.setAccountCode(accountCode);
         accountDto.setName(name);
+        accountDto.setTel(tel);
+        accountDto.setFax(fax);
+        accountDto.setEmail(email);
 
         AccountService accountService = new AccountService();
         Account createdAccount = accountService.createAccount(accountDto);
