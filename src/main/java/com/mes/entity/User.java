@@ -27,9 +27,6 @@ public class User {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Address address;
-
     @Column(name = "created_at")
     private Date createdAt;
 
